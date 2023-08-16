@@ -33,7 +33,7 @@ func (s *Sprint) addBoard(boardRef uuid.UUID) {
 }
 
 // Function to "cache" Sprint in Normalized form so its quicker and easyer to display it
-func (s *Sprint) cacheNormalizedData() {
+func (s *Sprint) cacheDenormalizedData() {
 	// todo()!
 }
 

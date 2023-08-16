@@ -17,7 +17,7 @@ func CreateMockSprint() {
 	reviewColumn := NewColumn("Review", user.id)
 	doneColumn := NewColumn("Done", user.id)
 
-	// Create Tasks
+	// Create Tasks and add them to the Todo column
 	NewTask("Task 01", "description for task 01", user.id).moveToColumn(todoColumn.id)
 	NewTask("Task 02", "description for task 02", user.id).moveToColumn(todoColumn.id)
 	NewTask("Task 03", "description for task 03", user.id).moveToColumn(todoColumn.id)
@@ -33,7 +33,5 @@ func CreateMockSprint() {
 	board1.addColumn(inDevelopmentColumn.id)
 	board1.addColumn(reviewColumn.id)
 	board1.addColumn(doneColumn.id)
-
-	// Add Tasks To Todo Column
 
 }

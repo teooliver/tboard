@@ -7,16 +7,18 @@ import (
 )
 
 type Task struct {
-	id          uuid.UUID
-	title       string
-	description string
-	estimation  int       // hours
-	assignedTo  string    // user id
-	sprintRef   string    // sprint id
-	boardRef    string    // board id
-	columnRef   uuid.UUID // column id
-	createdAt   time.Time
-	createdBy   uuid.UUID
+	id           uuid.UUID
+	title        string
+	description  string
+	estimation   int // hours
+	dueData      time.Time
+	remindedData time.Time
+	assignedTo   uuid.UUID // user id
+	epicRef      uuid.UUID // reference to the epic
+	columnRef    uuid.UUID // column id
+	isActive     bool      // archive
+	createdAt    time.Time
+	createdBy    uuid.UUID
 }
 
 func NewTask(title string, description string, createdBy uuid.UUID) *Task {
@@ -31,4 +33,12 @@ func NewTask(title string, description string, createdBy uuid.UUID) *Task {
 
 func (t *Task) moveToColumn(columnRef uuid.UUID) {
 	t.columnRef = columnRef
+}
+
+func (t *Task) moveToEpic(epicRef uuid.UUID) {
+	t.epicRef = epicRef
+}
+
+func (t *Task) assignTo(userID uuid.UUID) {
+	t.assignedTo = userID
 }

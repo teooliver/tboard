@@ -9,6 +9,8 @@ import (
 type Column struct {
 	id        uuid.UUID
 	name      string
+	position  int
+	tasks     []uuid.UUID
 	createdAt time.Time
 	createdBy uuid.UUID
 }
